@@ -1,0 +1,76 @@
+﻿
+@using MiMailIdentity.Models;
+@using MiMailIdentity.Services.CustomerCategoryRepository;
+@using MiMailIdentity.Helper.EnumHelper;
+
+@inject ICustomerCategoryRepository _repository;
+
+@{
+    var index = ViewBag.Index;
+    var size = ViewBag.Size;
+    var total = 0;
+    var list = _repository.GetAllPaging(index, size, out total);
+    var count_list = (index-1)*size + 1;
+
+}
+<div id="_set_pagination" data-total="@total" data-size="@size"></div>
+<thead>
+    <tr>
+        <th>STT</th>
+        <th>Nhóm khách hàng</th>
+        <th>SL khách hàng</th>
+        <th>Ngày tạo</th>
+        <th>Trạng thái</th>
+        <th class="center">Chức năng</th>
+    </tr>
+</thead>
+<tbody>
+    @foreach (var it in list)
+    {
+        var sl = 0;
+        if (it.GetCustomers != null)
+        {
+            sl = it.GetCustomers.ToList().Count;
+        }
+
+        <tr class="odd gradeC">
+            <td>@count_list</td>
+            <td>
+                <a href="javascript:void(0)" class="_detail_cate">@it.Name</a>
+            </td>
+            <td> <a href="group-customer.html">@sl</a> </td>
+            <td>@it.INS_DTTM.ToString("dd/MM/yyyy")</td>
+            <td class="center">
+                @{var i_tag = EnumHelper.GetIconColorStatusCustomerCategories(it.Status);}
+                <div class="d-flex align-items-center">
+                    <div class="d-flex">
+                        <i class="fas fa-circle @i_tag"></i>
+                    </div>
+                    <div class="txt-trangthai">
+                        @{
+                            var ss =EnumHelper.GetCustomerCategoryStatusEnum().Where(r => r.Key == it.Status).FirstOrDefault();
+                            <span>
+                                @ss.Value
+                            </span>
+                        }
+
+                    </div>
+                </div>
+            </td>
+            <td class="center">
+                <div class="dropdown">
+                    <button class="cust-btn-chucnang btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="far fa-ellipsis-v" style="color: #828282;"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left cust-drop-chucnang" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item _cate_edit" data-id="@it.Id" href="javascript:void(0)"><i class="fal fa-edit mr-1"></i> Sửa</a>
+                        <a class="dropdown-item _cate_delete" data-id="@it.Id" href="javascript:void(0)"><i class="fal fa-trash-alt mr-1"></i> Xoá</a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        count_list++;
+    }
+
+
+</tbody>

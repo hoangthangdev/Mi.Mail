@@ -1,0 +1,219 @@
+﻿
+@{
+    ViewData["Title"] = "AddOrUpdateCampaign";
+    Layout = "~/Views/Shared/_LayoutPublic.cshtml";
+}
+<section class="header-nav">
+    <div class="p-2 border-top">
+        <div class="container">
+            <span class="txt-data-top">Chiến dịch</span>
+            <div class="giaidoan d-flex">
+                <div class="turn-chimuc d-flex active">
+                    <div class="nb-turn mr-1 ">1</div>
+                    <div>Chiến dịch thường</div>
+                </div>
+                <div class="line-turn"></div>
+                <div class="turn-chimuc d-flex">
+                    <div class="nb-turn mr-1">2</div>
+                    <div>Chiến dịch tự động</div>
+                </div>
+                <div class="line-turn"></div>
+                <div class="turn-chimuc d-flex">
+                    <div class="nb-turn mr-1">3</div>
+                    <div>Mail kich bản</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="main-data-custmer">
+    <div class="bg-fff">
+        <div class="main-tksl">
+            <div class="hg-project p-3">
+                <ul class="tabs product-header mb-0">
+                    <li class="tab-link current" data-tab="tab-1">Nội dung chiến dịch</li>
+                    <li class="tab-link" data-tab="tab-2">Danh sách KH</li>
+                </ul>
+            </div>
+            <div class="mbl-container id-container mb-pd-0">
+                <div id="tab-1" class="tab-content tab-cusdb current">
+                    <div class="main-filter border-top">
+                        <form id="formTemplate">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="filter-camp pr-0">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="pd-0-12">
+                                                    <label class="txt-add-info" for="">Tên Teamplate</label><br>
+                                                    <input type="text" class="cust-ip-add" >
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="pd-0-12">
+                                                    <img src="~/images/camera.svg" class="img-fluid" />
+                                                    <input type="file" class="avaterTemp" accept="image/*" data-target-url="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="_binding_pickup_img" style="display:none; position:relative">
+                                        <div style="">
+                                            <img class="_place-img" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="filter-camp pl-0">
+                                        <textarea name="ckediter" id="ckediter" placeholder="Messange " class="w-100 ip-css"></textarea>
+
+                                        <div class="d-flex " style="justify-content: flex-end;">
+                                            <button type="button" class="btn btn-del-camp border mr-4">Huỷ</button>
+                                            <button type="submit" class="btn btn-add-camp">Lưu</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+                <div id="tab-2" class="tab-cusdb">
+                    <div class="filter-camp w-100">
+                        <span class="txt-data-top">List Khách hàng</span>
+                        <div class="row">
+                            <div class="col-md-2 txt-add-1">
+                                Chọn khách hàng:
+                            </div>
+                            <div class="col-md-4">
+                                <select name="datatable_length" aria-controls="datatable" class="cust-ip-add h-40">
+                                    <option value="all">Tất cả</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select name="datatable_length" aria-controls="datatable" class="cust-ip-add h-40">
+                                    <option value="all">Tất cả</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <button type="button" class="btn btn-addgr h-40" style="border-radius:4px;"><i class="fal fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table id="datatable" class="table cust-table">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Tên khách hàng</th>
+                                    <th>Số điện thoại</th>
+                                    <th>Email</th>
+                                    <th>Nhóm khách hàng</th>
+                                    <th class="center">Chọn tất cả</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="odd gradeX">
+                                    <td>1</td>
+                                    <td>
+                                        <div class="cust-colo">
+                                            Trần Đức Bo
+                                        </div>
+                                    </td>
+                                    <td>03426008466</td>
+                                    <td>meomeomeo@gmail.com</td>
+                                    <td>KH tiềm năng</td>
+                                    <td class="center" style="display: flex;justify-content: center;">
+                                        <label class="label-checkbox mb-0">
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr class="odd gradeX">
+                                    <td>1</td>
+                                    <td>
+                                        <div class="cust-colo">
+                                            Trần Đức Bo
+                                        </div>
+                                    </td>
+                                    <td>03426008466</td>
+                                    <td>meomeomeo@gmail.com</td>
+                                    <td>KH tiềm năng</td>
+                                    <td class="center" style="display: flex;justify-content: center;">
+                                        <label class="label-checkbox mb-0">
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr class="odd gradeX">
+                                    <td>1</td>
+                                    <td>
+                                        <div class="cust-colo">
+                                            Trần Đức Bo
+                                        </div>
+                                    </td>
+                                    <td>03426008466</td>
+                                    <td>meomeomeo@gmail.com</td>
+                                    <td>KH tiềm năng</td>
+                                    <td class="center" style="display: flex;justify-content: center;">
+                                        <label class="label-checkbox mb-0">
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section Scripts{
+    <script>
+        CKEDITOR.replace('ckediter');
+    </script>
+    <script>
+        $('#formTemplate').off('submit').on('submit', function () {
+            var avata = $(this).find('.avaterTemp').val();
+            var link =
+
+            console.log(1);
+            return false;
+        })
+    </script>
+    <script>
+        $('.avaterTemp').off('change').on('change', function () {
+            var Pren_el = $(this).closest('#formTemplate');
+            var url = "Uploads/CKEasyImage";
+            var file = $(this).files[0];
+            form = new FormData();
+            form.append('file', file);
+            $.post(url, form, function () {
+            })
+            readUrl(this, Pren_el);
+        })
+    </script>
+    <script>
+        function readUrl(input, el) {
+            if (input.files && input.files[0]) {
+                var render = new FileReader();
+                render.onload = function (e) {
+                    el.find('._binding_pickup_img').show();
+                    el.find('._place-img').attr('src', e.target.result).css("max-width", "50").css("max-height","50");
+                }
+                render.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+}
+

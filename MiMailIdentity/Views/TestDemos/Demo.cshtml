@@ -1,0 +1,52 @@
+﻿@using MiMailIdentity.Models;
+@using MiMailIdentity.Services.TestDemoRepository; 
+@inject ITestDemoRepository _testDemoRepository
+
+@{
+    ViewData["Title"] = "Demo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{ 
+    var id = (int)ViewBag.Id;
+    var demo = new TestDemo();
+    if(id > 0)
+    {
+        demo = _testDemoRepository.GetById(id);
+    }
+}
+
+
+<h2>Demo</h2>
+<label>Id:<span id="spectifiedId">@demo.Id</span></label>
+
+<label>Avatar</label>
+<input type="text" class="form-control" id="avatar" value="@demo.Avatar"/>
+<br />
+<label>Body</label>
+<textarea type="text" class="form-control" id="body">@demo.Body</textarea>
+<br />
+<button id="save">Save</button>
+
+@section scripts{ 
+    <script>
+        CKEDITOR.replace('body', {
+            //customConfig: '/js/configApp/ckeditorConfig.js'
+        });
+
+    </script>
+    <script>
+        $('#save').off('click').on('click', function () {
+            var demo = {
+                Id: $('#spectifiedId').text(),
+                Avatar: $('#avatar').val(),
+                Body: CKEDITOR.instances['body'].getData()
+            }
+
+            var url = '/TestDemos/Save';
+            $.post(url, demo, function (response) {
+                alert(response);
+            })
+        })
+    </script>
+}

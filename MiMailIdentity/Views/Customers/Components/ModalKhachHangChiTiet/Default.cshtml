@@ -1,0 +1,66 @@
+﻿@using  MiMailIdentity.Models;
+@model Customer
+@{ 
+    var entity = Model;
+}
+<div class="modal-header">
+    <h5 class="modal-title" id="myLargeModalLabel">Chi tiết khách hàng</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="info-custmer">
+        <div class="name-chitiet">
+            @entity.Name
+        </div>
+        <div class="body-info">
+            <div class="row">
+                <div class="col-6">
+                    <div><b>Giới tính:</b> @MiMailIdentity.Helper.EnumHelper.EnumHelper.GetTextGenderByTybe(entity.Gender)</div>
+                    <div><b>Id cá nhân:</b>@entity.CMT</div>
+                    <div><b>Ngày sinh:</b>@entity.DateOfBirth.GetValueOrDefault().ToString("dd/MM/yyyy")</div>
+                    <div><b>Địa chỉ:</b> @entity.Address</div>
+                </div>
+                <div class="col-6">
+                    <div><b>Số điện thoại:</b>@entity.Phone</div>
+                    <div><b>Email:</b>@entity.Email</div>
+                    <div><b>Ghi chú:</b>@entity.Description</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="info-history">
+        <div class="name-chitiet">
+            Lịch sử
+        </div>
+        <div class="body-info">
+            <!-- <div class="row">
+                <div class="col-3"></div>
+            </div> -->
+            <table class="w-100">
+                <tr>
+                    <th>Ngày gửi</th>
+                    <th>Chiến dịch</th>
+                    <th>Nội dung</th>
+                    <th>Trạng thái</th>
+                </tr>
+                <tr>
+                    <td>23/02/2020</td>
+                    <td>Chiến dịch 1</td>
+                    <td>Không có nhu cầu</td>
+                    <td>Gửi tin</td>
+                </tr>
+                <tr>
+                    <td>23/02/2020</td>
+                    <td>Chiến dịch 1</td>
+                    <td>Không có nhu cầu</td>
+                    <td>Gửi tin</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-cancel btn-addgr" data-dismiss="modal">Đóng</button>
+</div>

@@ -1,0 +1,65 @@
+﻿
+@using MiMailIdentity.Models;
+@using MiMailIdentity.Services.CustomerCategoryRepository;
+
+@inject ICustomerCategoryRepository _repo;
+
+@{ 
+    var id = ViewBag.Id;
+    var result = new CustomerCategory();
+    if(id > 0)
+    {
+        result = _repo.GetById(id);
+    }
+    var intro = "";
+    var outtro = "";
+    if(id <= 0)
+    {
+        intro = "Tạo mới nhóm khách hàng";
+        outtro = "Thêm mới";
+
+    }
+    if(id > 0)
+    {
+        intro = "Chỉnh sửa nhóm khánh hàng";
+        outtro = "Chỉnh sửa";
+    }
+}
+<div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">@intro</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <span>
+        Nhóm khách hàng
+    </span>
+    <br></br>
+    <div style="padding-bottom: 33px;">
+        <input id="_cate_name" data-id="0" type="text" placeholder="Nhập tên nhóm" class="form-modal border form-control" style="height:50px;" value="@result.Name">
+    </div>
+    <div class="item-status-div">
+        <span>Trạng thái</span>
+        <br />
+        @{
+            var lsStatus = MiMailIdentity.Helper.EnumHelper.EnumHelper.GetCustomerCategoryStatusEnum();
+        }
+        <select class="_item_status form-control">
+            @foreach (var l in lsStatus)
+            {
+                if (l.Key == result.Status) {
+                    <option value="@l.Key" selected>@l.Value</option>
+                }
+                else
+                {
+                    <option value="@l.Key">@l.Value</option>
+                }
+            }
+        </select>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-cancel" data-dismiss="modal">Cancel</button>
+    <button type="button" class="btn btn-addgr _btn_save_cate">@outtro</button>
+</div>

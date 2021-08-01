@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>MiMeo</title>
+    <meta name="author" content="" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="Resource-type" content="Document" />
+    <meta name="description" content="Test" />
+    <meta name="googlebot" content="noindex">
+    <meta name="googlebot-news" content="nosnippet">
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="#" />
+    <meta property="og:url" content="#" />
+    <meta property="og:site_name" content="" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="" />
+    <link rel="stylesheet" type="text/css" href="~/css/bootstrap.min.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="~/css/bsnav.min.css" /> -->
+    <link rel="stylesheet" type="text/css" href="~/css/fa-font.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/slick.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/slick-theme.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/fullpage.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/examples.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/extra.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/responsive.css" />
+
+    <script src="~/js/jquery-3.4.1.min.js"></script>
+    @RenderSection("Styles", required: false)
+</head>
+
+<body>
+    <div id="fullpage">
+        @RenderBody()
+    </div>
+
+    <script type="text/javascript" src="~/js/bootstrap.min.js"></script>
+    <!-- <script type="text/javascript" src="~/js/bsnav.min.js"></script> -->
+    <script type="text/javascript" src="~/js/font-icon.js"></script>
+    <script type="text/javascript" src="~/js/slick.min.js"></script>
+    <script type="text/javascript" src="~/js/examples.js"></script>
+    <script type="text/javascript" src="~/js/fullpage.min.js"></script>
+    <script type="text/javascript" src="~/js/main.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+
+</html>

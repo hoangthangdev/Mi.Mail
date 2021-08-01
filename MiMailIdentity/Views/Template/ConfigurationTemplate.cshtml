@@ -1,0 +1,118 @@
+﻿@using MiMailIdentity.Services.BuldingItemRepository;
+@using MiMailIdentity.Services.MailTemplateRepository;
+@using MiMailIdentity.Models;
+@using MiMailIdentity.Helper.EnumHelper
+@inject IBuildingItemRepository _repo;
+@inject IMailTemplateRepository _mailRepo;
+
+@{
+    ViewData["Title"] = "ConfigurationTemplate";
+    Layout = "~/Views/Shared/_LayoutPublic.cshtml";
+
+
+    var id = ViewBag.Id;
+}
+
+<section>
+    <div class="p-2 border-top">
+        <div class="container">
+            <div class="giaidoan d-flex">
+                <div class="turn-chimuc d-flex">
+                    <div class="nb-turn mr-1 ">1</div>
+                    <div>Chọn bố cục</div>
+                </div>
+                <div class="line-turn"></div>
+                <a href="/danh-sach-kh/nhom/1" class="turn-chimuc d-flex active">
+                    <div class="nb-turn mr-1">2</div>
+                    <div>Xây dựng mail mẫu</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <form class="container save-template-form">
+        <div class="row">
+            <div class="col-5">
+                <div>
+                    <div class="toolbox">
+                        <div class="item-picking" style="display:block">
+                            <div class="row">
+                                @{
+                                    var item_bulder = _repo.GetByCondition(r => r.Type == (int)BuildingItemTypeEnum.Item);
+                                }
+                                @foreach (var item in item_bulder)
+                                {
+                                    <div class="col-md-3 itemBuilderClone">
+                                        <button class=" form-control" type="button" data-id="@item.Id" data-body="@item.Body" data-cname="@item.ClassName">
+                                            @item.Name
+                                        </button>
+                                    </div>
+
+                                }
+                            </div>
+                            <hr />
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" placeholder="Tên Template" autocomplete="false" class="form-control name-template" />
+                                </div>
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                @*<select class="cate-template" multiple="multiple">
+                                        @{
+                                            var list_cate = _mailRepo.GetCategoryByCurrentUser();
+                                            foreach (var item in list_cate)
+                                            {
+                                                <option value="@item">@item</option>
+                                            }
+                                        }
+                                    </select>*@
+                                <input type="text" name="IpCate" id="IpCate" class="form-control" style="min-height:50px"/>
+                            </div>
+                            <br />
+                            <div class="row loadAvatar">
+                                <div class="col-md-12">
+                                    <label>Chọn avatar</label>
+                                    <input type="file"id="ipImg" style="height:50px" class="form-control" />
+                                </div>
+                                <div class="col-md-12">
+                                    <img src="~/img/placeholder.png" id="imgAvatar" alt="Alternate Text" style="width:150px;height:150px;" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-picked-editor" style="display:none">
+                            <textarea name="editck" style="width:100%;"></textarea>
+                        </div>
+                        <div class="">
+                            <button type="submit" class="btn btn-success save-template">
+                                Lưu
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-7">
+                @{
+                    var layout_detail = _repo.GetById(id);
+                }
+                @if (layout_detail != null)
+                {
+                    <div class="row">
+                        <div class="col-12 w-100">
+                            <div class="layoutBody">
+                                @Html.Raw(layout_detail.Body)
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </form>
+</section>
+@section scripts{
+    <script src="~/controllerJs/BuildingItemController.js"></script>
+}
+

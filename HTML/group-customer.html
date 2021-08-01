@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>MiMeo</title>
+    <meta name="author" content="" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="Resource-type" content="Document" />
+    <meta name="description" content="Test" />
+    <meta name="googlebot" content="noindex">
+    <meta name="googlebot-news" content="nosnippet">
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="#" />
+    <meta property="og:url" content="#" />
+    <meta property="og:site_name" content="" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/fa-font.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="css/slick.css" />
+    <link rel="stylesheet" type="text/css" href="css/slick-theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/table-data/dataTables.bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/table-data/nanoscroller.css" />
+    <link rel="stylesheet" type="text/css" href="css/table-data/style-cleanzone.css" /> -->
+    <link rel="stylesheet" type="text/css" href="css/Chart.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="js/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+    <section class="header-nav">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light p-0">
+                <a class="navbar-brand" href="dashboard.html">
+                    <img src="img/MIMAIL.png" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" style="justify-content: space-between;" id="navbarNav">
+                    <ul class="navbar-nav cust-nav-top">
+                        <li class="nav-item ">
+                            <a class="nav-link active" href="group-customer.html">
+                                <div class="item-cate">
+                                    <div>
+                                        <img src="img/Login-Signup/Icon/users.svg" alt="">
+                                    </div>
+                                    <div>Kho khách hàng</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="campaign.html">
+                                <div class="item-cate">
+                                    <div>
+                                        <img src="img/Login-Signup/Icon/campaign 1.svg" alt="">
+                                    </div>
+                                    <div>Chiến dịch</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="data-email.html">
+                                <div class="item-cate">
+                                    <div>
+                                        <img src="img/Login-Signup/Icon/mail.svg" alt="">
+                                    </div>
+                                    <div>Kho mail mẫu</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="data-template.html">
+                                <div class="item-cate">
+                                    <div>
+                                        <img src="img/Login-Signup/Icon/layout.svg" alt="">
+                                    </div>
+                                    <div>Kho Template</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="dashboard.html">
+                                <div class="item-cate">
+                                    <div>
+                                        <img src="img/Login-Signup/Icon/report.svg" alt="">
+                                    </div>
+                                    <div>Báo cáo</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="account.html">
+                                <div class="item-cate">
+                                    <div>
+                                        <img src="img/Login-Signup/Icon/accounting.svg" alt="">
+                                    </div>
+                                    <div>Accounting</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="payment.html">
+                                <div class="item-cate">
+                                    <div>
+                                        <img src="img/Login-Signup/Icon/money.svg" alt="">
+                                    </div>
+                                    <div>Nạp tiền</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <div class="item-cate">
+                                    <div>
+                                        <img src="img/Login-Signup/Icon/settings.svg" alt="">
+                                    </div>
+                                    <div>Setup</div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="d-flex">
+                        <div class="notification">
+                            <div class="nav-item dropdown cart">
+                                <a class="d-flex" href="#" role="button" data-toggle="dropdown">
+                                    <div class="icon">
+                                        <img src="img/Login-Signup/Icon/bell.svg" class="icon-nav" alt="">
+                                        <div class="amount">
+                                            9+
+                                        </div>
+                                    </div>
+                                </a>
+                                <!--Dropdown cart-->
+                                <div class="dropdown-menu dropdown-menu-right dropdown-cart">
+                                    1234
+                                </div>
+                            </div>
+                            <!--<button class="navbar-toggler toggler-spring navbar-tog gler-ctm">
+                                    <span class="navbar-toggler-icon cust-togg"></span>
+                                </button> -->
+                        </div>
+                        <div class="account">
+                            <div class="nav-item dropdown cart">
+                                <a class="d-flex align-items-center" href="#" role="button" data-toggle="dropdown">
+                                    <img src="img/Login-Signup/img.png" alt="">
+                                    <i class="fal fa-angle-down icon-acc"></i>
+                                </a>
+                                <!--Dropdown cart-->
+                                <div class="dropdown-menu dropdown-menu-right dropdown-cart">
+                                    <div class="container">
+                                        Mai Hồng Quang <br> hihi <br> hihi
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="p-2 border-top">
+            <div class="container">
+                <span class="txt-data-top">Kho khách hàng</span>
+                <div class="giaidoan d-flex">
+                    <div class="turn-chimuc d-flex">
+                        <div class="nb-turn mr-1 ">1</div>
+                        <div>Nhóm khách hàng</div>
+                    </div>
+                    <div class="line-turn"></div>
+                    <div class="turn-chimuc d-flex active">
+                        <div class="nb-turn mr-1">2</div>
+                        <div>List danh sách kH</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="process-list-khang">
+        <div class="container">
+            <div class="row">
+                <div class="col-1">
+                    <div class="">
+                        <div id="process-bar" class="process-group"></div>
+                    </div>
+                </div>
+                <div class="col-11">
+                    <span class="tke-turn">Tài khoản dùng thử miễn phí của bạn có giới hạn <span class="all-turn-co">1000</span> liên hệ. Bạn có thể thêm <span class="turn-con">998</span> liên hệ</span>
+                    <div class="tke-turn-sudung"> <span class="turn-daco">2</span> / 1000 Liên hệ</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="main-data-custmer pt-0">
+        <div class="container">
+            <div class="bg-fff">
+                <div class="tracuu-khhang">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="cus-name">
+                                <label for="name-input" class="cus-ic-box">
+                                        <i class="fal fa-search"></i>
+                                    </label>
+                                <input type="text" name="txtName" id="name-input" placeholder="Nhập tên , sđt, email..." class="w-100 ip-css">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="cus-name">
+                                <label for="name-input" class="cus-ic-box">
+                                        <i class="fal fa-search"></i>
+                                    </label>
+                                <input type="text" name="txtName" id="name-input" placeholder="KH tiềm năng" class="w-100 ip-css">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="cus-name">
+                                <label for="name-input" class="cus-ic-box">
+                                        <i class="fal fa-search"></i>
+                                    </label>
+                                <input type="text" name="txtName" id="name-input" placeholder="Thời gian nhập" class="w-100 ip-css">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="add-group">
+                            <button type="button" class="btn btn-addgr" data-toggle="modal" data-target="#myModal1"><i class="fal fa-plus mr-2"></i> Tạo mới</button>
+                            <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="myModalLabel">Tạo mới nhóm khách hàng</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <span>Nhóm khách hàng</span>
+                                            <div style="padding-bottom: 33px;">
+                                                <input type="text" placeholder="Nhập tên nhóm" style="font-size: 15px;padding: 0 10px;outline:none;" class="form-modal border">
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                                            <!-- <button type="button" class="btn btn-default btn-prev">Prev</button> -->
+                                            <button type="button" class="btn btn-cancel" data-dismiss="modal">Cancel</button>
+                                            <button type="button" class="btn btn-addgr btn-next">Add</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">Player 2</button> -->
+                            <div class="modal fade bd-example-modal-lg" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="myLargeModalLabel">Tạo mới khách hàng</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="txt-top1kh">THÔNG TIN KHÁCH HÀNG</div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="pd-0-15">
+                                                        <label class="txt-add-info" for="">Họ và tên</label><br>
+                                                        <input type="text" class="cust-ip-add">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="pd-0-15">
+                                                        <label class="txt-add-info" for="">CMT/Hộ chiếu:</label>
+                                                        <input type="text" class="cust-ip-add">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="pd-0-15">
+                                                        <label class="txt-add-info" for="">Nhóm khách hàng</label>
+                                                        <!-- <input type="text" class="cust-ip-add"> -->
+                                                        <select name="datatable_length" aria-controls="datatable" class=" cust-ip-add">
+                                                            <option value="10">10</option>
+                                                            <option value="25">25</option>
+                                                            <option value="50">50</option>
+                                                            <option value="100">100</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="pd-0-15">
+                                                        <label class="txt-add-info" for="">SĐT</label>
+                                                        <input type="text" class="cust-ip-add">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="pd-0-15">
+                                                        <label class="txt-add-info" for="">Ngày sinh</label>
+                                                        <input type="text" class="cust-ip-add">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="pd-0-15">
+                                                        <div class="d-flex">
+                                                            <label class="txt-add-info mr-3" for="">Giới tính</label>
+                                                            <div class="d-flex align-items-center txt-add-info mr-3">
+                                                                <input name="tinhthanh" type="radio" value="Hà Nội" class="mr-1">Nam
+                                                            </div>
+                                                            <div class="d-flex align-items-center txt-add-info">
+                                                                <input name="tinhthanh" type="radio" value="Hồ Chí Minh" class="mr-1">Nữ
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="pd-0-15">
+                                                        <label class="txt-add-info" for="">Ghi chú</label>
+                                                        <textarea name="txtNote" id="mess-input" placeholder="Messange " class="w-100 cust-ip-add" style="min-height: 130px;"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <!-- <button type="button" class="btn btn-default btn-prev">Prev</button>
+                                            <button type="button" class="btn btn-default btn-next">Next</button>
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                                            <button type="button" class="btn btn-cancel" data-dismiss="modal">Cancel</button>
+                                            <button type="button" class="btn btn-addgr btn-next">Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <img src="img/export.png" alt="" class="ml-2">
+                        </a>
+                        <a href="#">
+                            <img src="img/import.png" alt="" class="ml-2">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="content">
+                    <div class="table-responsive">
+                        <table id="datatable" class="table cust-table">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Họ và tên</th>
+                                    <th>Ngày sinh</th>
+                                    <th>Giới tính</th>
+                                    <th>Địa chỉ</th>
+                                    <th>Số điện thoại</th>
+                                    <th>Email</th>
+                                    <th>Nhóm KH</th>
+                                    <th>Ngày nhập</th>
+                                    <th class="center">Chức năng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="odd gradeX">
+                                    <td>1</td>
+                                    <td>
+                                        <!-- <a href="#">Mai Anh Tuấn</a> -->
+                                        <div type="button" data-toggle="modal" class="cust-colo" data-target=".info-kh">
+                                            Mai Anh Tuấn
+                                        </div>
+                                        <!-- Modal-->
+                                        <div class="modal fade bd-example-modal-lg info-kh" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="myLargeModalLabel">Chi tiết khách hàng</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="info-custmer">
+                                                            <div class="name-chitiet">
+                                                                Mai Hồng Quang
+                                                            </div>
+                                                            <div class="body-info">
+                                                                <div class="row">
+                                                                    <div class="col-6">
+                                                                        <div><b>Giới tính:</b> Nam</div>
+                                                                        <div><b>Id cá nhân:</b> ID3484</div>
+                                                                        <div><b>Ngày sinh:</b> 29/02/2020</div>
+                                                                        <div><b>Địa chỉ:</b> Số 08, P.Long Thành, TX Bà Rịa Vũng Tàu</div>
+                                                                    </div>
+                                                                    <div class="col-6">
+                                                                        <div><b>Số điện thoại:</b> 0944488865</div>
+                                                                        <div><b>Email:</b> hoatran@vinatourist.hanoi.vn</div>
+                                                                        <div><b>Ghi chú:</b> Đã liên hệ, chưa hẹn được KH</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="info-history">
+                                                            <div class="name-chitiet">
+                                                                Lịch sử
+                                                            </div>
+                                                            <div class="body-info">
+                                                                <!-- <div class="row">
+                                                                    <div class="col-3"></div>
+                                                                </div> -->
+                                                                <table class="w-100">
+                                                                    <tr>
+                                                                        <th>Ngày gửi</th>
+                                                                        <th>Chiến dịch</th>
+                                                                        <th>Nội dung</th>
+                                                                        <th>Trạng thái</th>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>23/02/2020</td>
+                                                                        <td>Chiến dịch 1</td>
+                                                                        <td>Không có nhu cầu</td>
+                                                                        <td>Gửi tin</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>23/02/2020</td>
+                                                                        <td>Chiến dịch 1</td>
+                                                                        <td>Không có nhu cầu</td>
+                                                                        <td>Gửi tin</td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-cancel btn-addgr" data-dismiss="modal">Đóng</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>29/11/2020</td>
+                                    <td>Nam</td>
+                                    <td>17/101 Phạm Thạch Đống Đa, HN</td>
+                                    <td> <a href="#">0346008566</a></td>
+                                    <td>info@hvntravel.com</td>
+                                    <td>KH tiềm năng</td>
+                                    <td>29/11/2020</td>
+                                    <!-- <td class="center">
+                                        <div class="d-flex align-items-center">
+                                            <div class="d-flex">
+                                                <i class="fas fa-circle drun"></i>
+                                            </div>
+                                            <div class="txt-trangthai">
+                                                Hoạt động
+                                            </div>
+                                        </div>
+                                    </td> -->
+                                    <td class="center">
+                                        <div class="dropdown">
+                                            <button class="cust-btn-chucnang btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                               <i class="far fa-ellipsis-v" style="color: #828282;"></i></button>
+                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left cust-drop-chucnang" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" href="#"><i class="fal fa-at mr-1"></i> Gửi email nhanh</a>
+                                                <a class="dropdown-item" href="#"><i class="fal fa-edit mr-1"></i> Chỉnh sửa thông tin</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="odd gradeX">
+                                    <td>1</td>
+                                    <td>
+                                        <!-- <a href="#">Mai Anh Tuấn</a> -->
+                                        <div type="button" data-toggle="modal" class="cust-colo" data-target=".info-kh">
+                                            Mai Anh Tuấn
+                                        </div>
+                                        <!-- Modal-->
+                                        <div class="modal fade bd-example-modal-lg info-kh" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel_2" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="myLargeModalLabel_2">Chi tiết khách hàng</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="info-custmer">
+                                                            <div class="name-chitiet">
+                                                                Mai Hồng Quang
+                                                            </div>
+                                                            <div class="body-info">
+                                                                <div class="row">
+                                                                    <div class="col-6">
+                                                                        <div><b>Giới tính:</b> Nam</div>
+                                                                        <div><b>Id cá nhân:</b> ID3484</div>
+                                                                        <div><b>Ngày sinh:</b> 29/02/2020</div>
+                                                                        <div><b>Địa chỉ:</b> Số 08, P.Long Thành, TX Bà Rịa Vũng Tàu</div>
+                                                                    </div>
+                                                                    <div class="col-6">
+                                                                        <div><b>Số điện thoại:</b> 0944488865</div>
+                                                                        <div><b>Email:</b> hoatran@vinatourist.hanoi.vn</div>
+                                                                        <div><b>Ghi chú:</b> Đã liên hệ, chưa hẹn được KH</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="info-history">
+                                                            <div class="name-chitiet">
+                                                                Lịch sử
+                                                            </div>
+                                                            <div class="body-info">
+                                                                <!-- <div class="row">
+                                                                    <div class="col-3"></div>
+                                                                </div> -->
+                                                                <table class="w-100">
+                                                                    <tr>
+                                                                        <th>Ngày gửi</th>
+                                                                        <th>Chiến dịch</th>
+                                                                        <th>Nội dung</th>
+                                                                        <th>Trạng thái</th>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>23/02/2020</td>
+                                                                        <td>Chiến dịch 1</td>
+                                                                        <td>Không có nhu cầu</td>
+                                                                        <td>Gửi tin</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>23/02/2020</td>
+                                                                        <td>Chiến dịch 1</td>
+                                                                        <td>Không có nhu cầu</td>
+                                                                        <td>Gửi tin</td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-cancel btn-addgr" data-dismiss="modal">Đóng</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>29/11/2020</td>
+                                    <td>Nam</td>
+                                    <td>17/101 Phạm Thạch Đống Đa, HN</td>
+                                    <td> <a href="#">0346008566</a></td>
+                                    <td>info@hvntravel.com</td>
+                                    <td>KH tiềm năng</td>
+                                    <td>29/11/2020</td>
+                                    <!-- <td class="center">
+                <div class="d-flex align-items-center">
+                    <div class="d-flex">
+                        <i class="fas fa-circle drun"></i>
+                    </div>
+                    <div class="txt-trangthai">
+                        Hoạt động
+                    </div>
+                </div>
+            </td> -->
+                                    <td class="center">
+                                        <div class="dropdown">
+                                            <button class="cust-btn-chucnang btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                               <i class="far fa-ellipsis-v" style="color: #828282;"></i>
+                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left cust-drop-chucnang" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" href="#"><i class="fal fa-at mr-1"></i> Gửi email nhanh</a>
+                                                <a class="dropdown-item" href="#"><i class="fal fa-edit mr-1"></i> Chỉnh sửa thông tin</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script src="js/popper.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/font-icon.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
+    <script type="text/javascript" src="js/Chart.min.js"></script>
+    <script type="text/javascript" src="js/progressbar.js"></script>
+
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            //initialize the javascript
+            App.init();
+            App.dataTables();
+        });
+    </script>
+    <script>
+        var percentage = 40;
+        var bar = new ProgressBar.Circle('#process-bar', {
+            strokeWidth: 10,
+            color: '#000000',
+            trailColor: '#eee',
+            trailWidth: 1,
+            easing: 'easeInOut',
+            duration: 1400,
+            svgStyle: null,
+            text: {
+                value: '',
+                alignToBottom: false
+            },
+            from: {
+                color: '#F26D21'
+            },
+            to: {
+                color: '#F26D21'
+            },
+            // Set default step function for all animate calls
+            step: (state, bar) => {
+                bar.path.setAttribute('stroke', state.color);
+                var value = percentage;
+                if (value === 0) {
+                    bar.setText('');
+                } else {
+                    bar.setText(value + "/200 Liên hệ");
+                }
+
+                bar.text.style.color = state.color;
+            }
+        });
+
+        bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
+        bar.text.style.fontSize = '36px';
+        bar.animate(percentage / 200); // Number from 0.0 to 1.0
+    </script>
+    <script>
+        $("div[id^='myModal']").each(function() {
+
+            var currentModal = $(this);
+
+            //click next
+            currentModal.find('.btn-next').click(function() {
+                currentModal.modal('hide');
+                currentModal.closest("div[id^='myModal']").nextAll("div[id^='myModal']").first().modal('show');
+            });
+
+            //click prev
+            currentModal.find('.btn-prev').click(function() {
+                currentModal.modal('hide');
+                currentModal.closest("div[id^='myModal']").prevAll("div[id^='myModal']").first().modal('show');
+            });
+
+        });
+    </script>
+</body>
+
+</html>

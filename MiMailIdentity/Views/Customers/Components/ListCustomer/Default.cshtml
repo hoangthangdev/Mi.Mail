@@ -1,0 +1,80 @@
+﻿@using MiMailIdentity.Services.CustomerRepository;
+@using MiMailIdentity.Services.CustomerCategoryRepository;
+@using MiMailIdentity.Models;
+@model FilterCustomer;
+@using System.Globalization;
+@inject ICustomerRepository _repo;
+@inject ICustomerCategoryRepository _reponCate;
+@{
+    var index = Model.pageIndex;
+    var size = Model.pageSize;
+    var cateId = Model.CateId;
+    var startDate = Model.StartDate;
+    var endDate = Model.EndDate;
+
+    var total = 0;
+    //var ListCustomer = _repo.GetAllPaging(index, size, out total) as IQueryable<Customer>;
+    //var ListCustomer = _repo.GetByConditionPaging(r => r.CustomerCateId == c_id, index, size, out total);
+    var ListCustomer = _repo.FilterCustomer(Model, out total);
+
+    var stt = size * index - size + 1;
+}
+@{ 
+    
+}
+<div id="_set_pagination" data-total="@total" data-size="@size"></div>
+<thead>
+    <tr>
+        <th>STT</th>
+        <th>Họ và tên</th>
+        <th>Ngày sinh</th>
+        <th>Giới tính</th>
+        <th>Địa chỉ</th>
+        <th>Số điện thoại</th>
+        <th>Email</th>
+        <th>Nhóm KH</th>
+        <th>Ngày nhập</th>
+        <th class="center">Chức năng</th>
+    </tr>
+</thead>
+<tbody>
+    @if (ListCustomer != null)
+    {
+        @foreach (var item in ListCustomer)
+        {
+
+            <tr class="odd gradeX">
+                <td>@stt</td>
+                <td>
+                    <!-- <a href="#">Mai Anh Tuấn</a> -->
+                    <div type="button" data-Id="@item.Id" class="cust-colo ModaChiTiet" data-target=".info-kh">
+                        @item.Name
+                    </div>
+                    <!-- Modal-->
+                </td>
+                <td>@item.DateOfBirth.GetValueOrDefault().ToString("dd/MM/yyyy")</td>
+                <td>@MiMailIdentity.Helper.EnumHelper.EnumHelper.GetTextGenderByTybe(item.Gender)</td>
+                <td>@item.Address</td>
+                <td> <a href="tel:@(item.Phone)">@item.Phone</a></td>
+                <td>@item.Email</td>
+                <td>@_reponCate.GetById(item.CustomerCateId).Name</td>
+                <td>@item.INS_DTTM</td>
+                <td class="center">
+                    <div class="dropdown">
+                        <button class="cust-btn-chucnang btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="far fa-ellipsis-v" style="color: #828282;"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left cust-drop-chucnang" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#"><i class="fal fa-at mr-1"></i> Gửi email nhanh</a>
+                            <a class="dropdown-item UDCustomer" data-Id="@item.Id" href="#"><i class="fal fa-edit mr-1"></i> Chỉnh sửa thông tin</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            stt++;
+        }
+
+    }
+</tbody>
+
+

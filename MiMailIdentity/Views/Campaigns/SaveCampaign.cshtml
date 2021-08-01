@@ -1,0 +1,110 @@
+﻿@using MiMailIdentity.Models;
+@using MiMailIdentity.Services.CampaignRepository;
+
+@inject ICampaignRepostitory _repo; 
+
+
+@{
+    ViewData["Title"] = "SaveCampaign";
+    Layout = "~/Views/Shared/_LayoutPublic.cshtml";
+}
+@{ 
+//var id = ViewBag.Id;
+//var result = new Campaign();
+//if(id > 0)
+//{
+//    result = 
+//}
+}
+
+
+
+    <section class="main-data-custmer">
+        <div class="container">
+            <div class="bg-fff">
+                <div class="main-tksl">
+                    <div class="hg-project">
+                        <ul class="tabs product-header">
+                            <li class="tab-link current" data-tab="tab-1">Nội dung chiến dịch</li>
+                            <li class="tab-link" data-tab="tab-2">Danh sách KH</li>
+                        </ul>
+                    </div>
+
+                    <div class="mbl-container id-container mb-pd-0">
+                        <div id="tab-1" class="tab-content tab-cusdb current">
+                            <div class="main-filter border-top">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="filter-camp">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="pd-0-12">
+                                                        <label class="txt-add-info" for="">Họ và tên</label><br>
+                                                        <input type="text" class="cust-ip-add">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="pd-0-12">
+                                                        <label class="txt-add-info" for="">Nhóm khách hàng</label>
+                                                        <!-- <input type="text" class="cust-ip-add"> -->
+                                                        <select name="datatable_length" aria-controls="datatable" class=" cust-ip-add">
+                                                            <option value="10">10</option>
+                                                            <option value="25">25</option>
+                                                            <option value="50">50</option>
+                                                            <option value="100">100</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="pd-0-12">
+                                                        <label class="txt-add-info" for="">SĐT</label>
+                                                        <input type="text" class="cust-ip-add">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="pd-0-12">
+                                                        <label class="txt-add-info" for="">Ngày sinh</label>
+                                                        <input type="text" class="cust-ip-add">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="pd-0-12">
+                                                        <div class="">
+                                                            <label class="txt-add-info mr-3" for="">Send Email to:</label>
+                                                            <div class="d-flex align-items-center txt-add-info mr-3">
+                                                                <input name="tinhthanh" type="radio" value="Hà Nội" class="mr-1">Tất cả liên hệ
+                                                            </div>
+                                                            <div class="d-flex align-items-center txt-add-info">
+                                                                <input name="tinhthanh" type="radio" value="Hồ Chí Minh" class="mr-1">Lọc theo nhóm
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="pd-0-12">
+                                                        <label class="txt-add-info" for="">Tất cả liên hệ</label>
+                                                        <!-- <input type="text" class="cust-ip-add"> -->
+                                                        <select name="datatable_length" aria-controls="datatable" class=" cust-ip-add">
+                                                            <option value="10">Liên hệ 1</option>
+                                                            <option value="25">Liên hệ 1</option>
+                                                            <option value="50">50</option>
+                                                            <option value="100">100</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab-2" class="tab-cusdb">
+                            #2
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+

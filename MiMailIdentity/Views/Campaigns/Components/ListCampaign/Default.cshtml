@@ -1,0 +1,103 @@
+﻿@using MiMailIdentity.Models;
+@using MiMailIdentity.Services.CampaignCateroryRepository;
+@using MiMailIdentity.Services.CampaignRepository;
+
+@inject ICampaignCategoryRepository _cate;
+@inject ICampaignRepostitory _repo;
+
+@{
+    ViewData["Title"] = "NormalCampaign";
+    Layout = "~/Views/Shared/_LayoutPublic.cshtml";
+}
+
+@{
+    int index = ViewBag.Index;
+    int size = ViewBag.Size;
+    int total = 0;
+    string type = ViewBag.Type;
+
+    var result = new List<Campaign>();
+
+    if (!string.IsNullOrEmpty(type))
+    {
+        var c = _cate.GetByCondition(r => r.Slug.Equals(type)).FirstOrDefault();
+        if (c != null)
+        {
+            result = _repo.GetByConditionPaging(r => r.CampaignCateId == c.Id, index, size, out total).ToList();
+        }
+    }
+    var count = (index - 1) * size + 1;
+}
+<div id="_set_pagination" data-total="@total" data-size="@size"></div>
+<table id="datatable" class="table cust-table">
+    <thead>
+        <tr>
+            <th>Stt</th>
+            <th>Tên chiến dịch</th>
+            <th>Số lượng email gửi</th>
+            <th>Lượt mở</th>
+            <th>Lượt Click</th>
+            <th>Tỉ lệ mở</th>
+            <th>Hủy</th>
+            <th>Ngày khởi tạo</th>
+            <th>Ngày bắt đầu</th>
+            <th class="center">Trạng thái</th>
+            <th class="center">Chức năng</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var it in result)
+        {
+            var dt = new DateTime();
+            int totalMail = 0;
+            var s = it.ScheduleTime;
+            if (s != null)
+            {
+                dt = s.Value;
+            }
+            var l = it.GetCustomerCampaigns;
+            if (l != null)
+            {
+                totalMail = l.Count;
+            }
+
+            <tr class="odd gradeX">
+                <td>@count</td>
+                <td>
+                    <div class="cust-colo">
+                        @it.Name
+                    </div>
+                </td>
+                <td>@totalMail</td>
+                <td>Chưa set Dl</td>
+                <td>Chưa set Dl</td>
+                <td>Chưa set Dl</td>
+                <td>Chưa set Dl</td>
+                <td>@it.INS_DTTM.ToString("dd/MM/YYYY")</td>
+                <td>@(it.ScheduleTime != null ? dt.ToString("dd/MM/yyyy") : "Không có lịch gửi")</td>
+                <td>@*@dt.ToString("dd/MM/yyyy")*@</td>
+                <td>
+                    @{ 
+                        var i_tag = MiMailIdentity.Helper.EnumHelper.EnumHelper.GetIconColorStatusCampaign(it.Status);
+                    }
+                    <div class="d-flex align-items-center" style="justify-content:center;">
+                        <div class="d-flex">
+                            <i class="fas fa-circle @i_tag"></i>
+                        </div>
+                    </div>
+                </td>
+                <td class="center">
+                    <div class="dropdown">
+                        <button class="cust-btn-chucnang btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="far fa-ellipsis-v" style="color: #828282;"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left cust-drop-chucnang" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item _campaign_send_mail" href="javascript.void(0)"><i class="fal fa-at mr-1"></i> Gửi email nhanh</a>
+                            <a class="dropdown-item _campaign_edit" href="javascript.void(0)"><i class="fal fa-edit mr-1"></i> Chỉnh sửa thông tin</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

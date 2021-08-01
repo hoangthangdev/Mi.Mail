@@ -1,0 +1,134 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+    <div class="section s1">
+        <div class="my-story h-100">
+            <div class="row h-100">
+                <div class="col-md-6 col-12 pr-0">
+                    <div class="main-left">
+                        <div class="container">
+                            <div class="logo">
+                                <a href="#"><img src="~/img/logo.png" alt=""></a>
+                            </div>
+                            <div class="txt-welcome">
+                                <p class="txt-lg1">Chào mừng bạn đến với MIMAIL</p>
+                                <p class="txt-lg2">Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum industry. Lorem Ipsum </p>
+                            </div>
+                            <ul class="row list-lv">
+                                <li class="col-3">
+                                    <div class="item-gphap">
+                                        <a href="#">
+                                            <img src="~/img/Login-Signup/Icon/32pxcrm.png" alt="">
+                                            <p class="mt-3">Tourkit</p>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="col-3">
+                                    <div class="item-gphap">
+                                        <a href="#">
+                                            <img src="~/img/Login-Signup/Icon/32pxcrm.png" alt="">
+                                            <p class="mt-3">Thiết kế/ Xây dựng Website chuyên nghiệp</p>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="col-3">
+                                    <div class="item-gphap">
+                                        <a href="#">
+                                            <img src="~/img/Login-Signup/Icon/32pxcrm.png" alt="">
+                                            <p class="mt-3">Phát triển phần mềm theo yêu cầu</p>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="col-3">
+                                    <div class="item-gphap">
+                                        <a href="#">
+                                            <img src="~/img/Login-Signup/Icon/32pxcrm.png" alt="">
+                                            <p class="mt-3">Các giải pháp quản trị doanh nghiệp</p>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="txt-bq">© 2016. Dev by MiGroup</div>
+                        </div>
+                    </div>
+                </div>
+                <form method="post" class="col-md-6 col-12 pl-0">
+                    <div class="all-login">
+                        <div class="main-registration">
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                            <p class="txt-res-1">Đăng ký</p>
+                            <div class="txt-res-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum Bạn đã có tài khoản? <a href="#">Đăng nhập ngay.</a></div>
+
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <div class="input-group">
+                                        <input asp-for="Input.Email" required="" placeholder="E-mail" class="form-control" />
+                                        
+                                        @*<input type="email" name="email" data-parsley-trigger="change" data-parsley-errors-container="#email-error" required="" placeholder="E-mail" class="form-control">*@
+                                    </div>
+                                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <div class="input-group">
+                                        @*<input id="pass1" type="password" data-parsley-errors-container="#password-error" placeholder="Password" required="" class="form-control">*@
+                                        <input asp-for="Input.Password" type="password" placeholder="Password" required="" class="form-control" />
+
+                                    </div>
+                                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                    
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <div class="input-group">
+                                        @*<input  class="form-control">*@
+                                        <input asp-for="Input.ConfirmPassword" class="form-control" type="password" required="" placeholder="Nhập lại password" />
+
+                                    </div>
+                                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                                    
+                                </div>
+                            </div>
+                            @*<label class="label-checkbox mb-0">
+                                Lorem Ipsum is simply dummy text of the printing
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>*@
+                            <div style="margin-top: 25px;">
+                                <button type="submit" class="btn contact-now" style="margin: 0 auto;">Đăng ký tài khoản</button>
+                            </div>
+                        </div>
+                        <div class="our-log">
+                            <div class="txt-logus">
+                                <div class="line-logus"></div>
+                                <div class="txt-logus-1">Hoặc đăng nhập bằng</div>
+                                <div class="line-logus"></div>
+                            </div>
+                            <ul class="row list-mxh">
+                                <li class="col-3">
+                                    <a href="#"><img src="~/img/Login-Signup/Icon/Fb.png" alt=""></a>
+                                </li>
+                                <li class="col-3">
+                                    <a href="#"><img src="~/img/Login-Signup/Icon/Sms.png" alt=""></a>
+                                </li>
+                                <li class="col-3">
+                                    <a href="#"><img src="~/img/Login-Signup/Icon/Zalo.png" alt=""></a>
+                                </li>
+                                <li class="col-3">
+                                    <a href="#"><img src="~/img/Login-Signup/Icon/google.png" alt=""></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

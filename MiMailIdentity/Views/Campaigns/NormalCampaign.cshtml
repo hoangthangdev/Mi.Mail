@@ -1,0 +1,93 @@
+﻿@using MiMailIdentity.Models;
+@using MiMailIdentity.Services.CampaignCateroryRepository;
+@using MiMailIdentity.Services.CampaignRepository;
+
+@inject ICampaignCategoryRepository _cate;
+@inject ICampaignRepostitory _repo;
+
+@{
+    ViewData["Title"] = "NormalCampaign";
+    Layout = "~/Views/Shared/_LayoutPublic.cshtml";
+}
+
+@{ 
+    int index = 1;
+    int size = 10;
+    int total = 0;
+    string type = ViewBag.Type;
+
+    var result = new List<Campaign>();
+
+    if (!string.IsNullOrEmpty(type))
+    {
+        var c = _cate.GetByCondition(r => r.Slug.Equals(type)).FirstOrDefault();
+        if(c != null)
+        {
+            result = _repo.GetByConditionPaging(r => r.CampaignCateId == c.Id, index, size, out total).ToList();
+        }
+    }
+}
+
+    <section class="main-data-custmer">
+        <div class="container">
+            <div class="bg-fff">
+                <div class="tracuu-khhang">
+                    <div class="d-flex">
+                        <label class="cust-label-opt pr-5">
+                            Show <select name="datatable_length" aria-controls="datatable" class="form-control m-2">
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select> row
+                        </label>
+                        <label class="cust-label-opt">
+                            Show<select name="datatable_length" aria-controls="datatable" class="form-control m-2">
+                                <option value="Today">Today</option>
+                                <option value="25">Yesterday</option>
+                                <option value="50">Last 7 days</option>
+                                <option value="100">Last 28 days</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center mr-3">
+                            <div class="d-flex">
+                                <i class="fas fa-circle dpause"></i>
+                            </div>
+                            <div class="txt-trangthai">
+                                Sắp chạy
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center mr-3">
+                            <div class="d-flex">
+                                <i class="fas fa-circle drun"></i>
+                            </div>
+                            <div class="txt-trangthai">
+                                Hoạt động
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center mr-3">
+                            <div class="d-flex">
+                                <i class="fas fa-circle dstop"></i>
+                            </div>
+                            <div class="txt-trangthai">
+                                Tạm dừng
+                            </div>
+                        </div>
+                        <a href="add-campaign.html">
+                            <div class="btn btn-addgr" style="font-size:14px;">
+                                <i class="fal fa-plus mr-2"></i> Tạo chiến dịch
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    @await Component.InvokeAsync("ListCampaign", new { pageIndex = index, pageSize = size, type = type })
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+

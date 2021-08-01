@@ -1,0 +1,37 @@
+﻿@using MiMailIdentity.Models;
+@using MiMailIdentity.Services.MailTemplateRepository;
+@inject IMailTemplateRepository _repo;
+@{
+    var cate = ViewBag.Cate;
+    var t = 0;
+    var PageIndex = ViewBag.index;
+    var searchstring = ViewBag.StSearch;
+    var list_item = _repo.GetByCategory(cate, searchstring, PageIndex, out t);
+}
+<div style="display:none" id="_set_pagination" data-total="@t"></div>
+<div class="container" id="temp">
+
+    <div class="tab-content">
+        <div id="binding-template" class=" tab-pane active">
+            <br>
+            <div class="row">
+                @foreach (var item in list_item)
+                {
+                    <div class="col-md-3">
+                        <div class="overplay">
+                            <a href="">
+                                <img src="/uploads/@item.Avatar" class="img-fluid">
+                                <div class="overlay">
+                                    <div class="txt">Sử dụng mẫu</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="txt1">
+                            <p class="text-uppercase">@item.Name</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

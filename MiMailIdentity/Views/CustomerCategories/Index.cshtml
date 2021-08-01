@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutPublic.cshtml";
+
+}
+@{
+    var index = 1;
+    var size = 10;
+}
+<section>
+    <div class="p-2 border-top">
+        <div class="container">
+            <div class="giaidoan d-flex">
+                <div class="turn-chimuc d-flex active">
+                    <div class="nb-turn mr-1 ">1</div>
+                    <div>Nhóm khách hàng</div>
+                </div>
+                <div class="line-turn"></div>
+                <a href="/danh-sach-kh/nhom/1" class="turn-chimuc d-flex">
+                    <div class="nb-turn mr-1">2</div>
+                    <div>List danh sách kH</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="main-data-custmer">
+    <div class="container">
+        <div class="bg-fff">
+            <div class="add-group">
+                <!-- Button trigger modal -->
+                @*<button type="button" class="btn btn-addgr btn-create" data-toggle="modal" data-target="#exampleModal">*@
+                <button type="button" class="btn btn-addgr btn-create">
+                    <i class="fal fa-plus mr-2"></i> Tạo nhóm mới
+                </button>
+                <!-- Modal -->
+                @*<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">*@
+                <div class="modal fade" id="modal-create">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div id="binding-button">
+                </div>
+
+                <div class="table-responsive">
+                    <table id="datatable" class="table cust-table">
+                        @await Component.InvokeAsync("ListCustomerCategories", new { pageIndex = index, pageSize = size })
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="pagination">
+
+        </div>
+        @*<div class="pagin">
+                <ul class="number-page bd-top-arts">
+                    <li>
+                        <a href="#" class="icon-pre">
+                            <i class="fal fa-angle-left"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="" class="nb-txt nb-hover active">1</a>
+                    </li>
+                    <li>
+                        <a href="#" title="" class="nb-txt nb-hover">2</a>
+                    </li>
+                    <li>
+                        <a href="#" title="" class="nb-txt nb-hover">3</a>
+                    </li>
+                    <li>
+                        <a title="" class="nb-txt ">...</a>
+                    </li>
+                    <li>
+                        <a href="#" title="" class="nb-txt nb-hover">20</a>
+                    </li>
+                    <li>
+                        <a href="#" class="icon-pre">
+                            <i class="fal fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>*@
+    </div>
+
+</section>
+@section scripts{
+    <script src="~/controllerJs/CustomerCategoriesController.js"></script>
+}

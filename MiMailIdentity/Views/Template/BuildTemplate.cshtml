@@ -1,0 +1,60 @@
+﻿@using MiMailIdentity.Services.BuldingItemRepository;
+@using MiMailIdentity.Models;
+@using MiMailIdentity.Helper.EnumHelper
+@inject IBuildingItemRepository _repo;
+@{
+    ViewData["Title"] = "BuildTemplate";
+    Layout = "~/Views/Shared/_LayoutPublic.cshtml";
+}
+@section styles{
+    
+}
+
+
+<section>
+    <div class="p-2 border-top">
+        <div class="container">
+            <div class="giaidoan d-flex">
+                <div class="turn-chimuc d-flex active">
+                    <div class="nb-turn mr-1 ">1</div>
+                    <div>Chọn bố cục</div>
+                </div>
+                <div class="line-turn"></div>
+                <a href="/danh-sach-kh/nhom/1" class="turn-chimuc d-flex">
+                    <div class="nb-turn mr-1">2</div>
+                    <div>Xây dựng mail mẫu</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="row">
+            <h1>
+                <span class="text-semibold">Chọn bố cục mẫu</span>
+            </h1>
+        </div>
+        <br />
+        <div class="row">
+            @{
+                var list_builder = _repo.GetByCondition(r => r.Type == (int)BuildingItemTypeEnum.Layout);
+                foreach (var item in list_builder)
+                {
+                    var link_tar = string.Format("/mail-mau/dung-bo-cuc/{0}", item.Id);
+                    <div class="col-md-2">
+                        <a href="@link_tar">
+                            <div class="panel panel-flat panel-template-style">
+                                <div class="panel-body">
+                                    <img src="@item.Avatar" />
+                                    <h5 class="mb-0" style="text-align:center;">@item.Name</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+
+</section>

@@ -1,0 +1,48 @@
+/*Ipad */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 800px) and (orientation: portrait) {}
+
+@media (min-width: 979px) {}
+
+@media screen and (width: 1024px) {}
+
+@media screen and (min-width: 1800px) {
+    .all-login {
+        position: relative;
+        padding: 180px 195px;
+        background-color: #FCFCFC;
+        height: 100%;
+    }
+    .txt-logus {
+        padding-top: 44px;
+    }
+}
+
+@media screen and (min-width: 1200px) {}
+
+
+/*Ipad dọc(768 x 1024)*/
+
+@media screen and (max-width: 768px) {}
+
+
+/* Tablet nhỏ(480 x 640)* 5S/ */
+
+@media (max-width: 320px) {}
+
+@media only screen and (width: 414px) {}
+
+
+/* Smartphones (portrait) Xoay ngang———– */
+
+@media (min-width: 769px) and (max-width: 991px) {}
+
+@media only screen and (max-width: 736px) {}
+
+@media only screen and (max-width: 415px) {}
+
+@media only screen and (width: 768px) {}
+
+@media (min-width: 768px) and (max-width: 991px) {}
+
+@media (min-width: 320px) and (max-width: 767px) {}

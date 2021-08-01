@@ -1,0 +1,375 @@
+﻿
+@{
+    Layout = null;
+}
+
+@using MiMailIdentity.Helper.AccountHelper;
+@inject IAccountHelper _accountHelper
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>MiMeo</title>
+    <meta name="author" content="" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="Resource-type" content="Document" />
+    <meta name="description" content="Test" />
+    <meta name="googlebot" content="noindex">
+    <meta name="googlebot-news" content="nosnippet">
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="#" />
+    <meta property="og:url" content="#" />
+    <meta property="og:site_name" content="" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="" />
+    <link rel="stylesheet" type="text/css" href="~/css/bootstrap.min.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="~/css/bsnav.min.css" /> -->
+    <link rel="stylesheet" type="text/css" href="~/css/fa-font.css" />
+    @*<link rel="stylesheet" type="text/css" href="~/css/table-data/dataTables.bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="~/css/table-data/nanoscroller.css" />
+        <link rel="stylesheet" type="text/css" href="~/css/table-data/style-cleanzone.css" />*@
+    <link rel="stylesheet" type="text/css" href="~/css/Chart.min.css" />
+    <link href="~/lib/paginationJS/pagination.css" rel="stylesheet" />
+    <link href="~/lib/jquery-confirm/dist/jquery-confirm.min.css" rel="stylesheet" />
+    <link href="~/lib/daterangepicker-master/daterangepicker.css" rel="stylesheet" />
+    <link href="~/lib/appzoo/buildtemp/css/builder.css" rel="stylesheet" />
+    <link href="~/lib/appzoo/buildtemp/css/colorpicker.css" rel="stylesheet" />
+    <link href="~/lib/appzoo/buildtemp/css/icmoon.css" rel="stylesheet" />
+    <link href="~/lib/appzoo/buildtemp/css/Icon.css" rel="stylesheet" />
+    <link href="~/lib/appzoo/buildtemp/css/res_email.css" rel="stylesheet" />
+    <link href="~/lib/appzoo/buildtemp/css/styles.css" rel="stylesheet" />
+    <link href="~/lib/advanced-multiselect-easy/easySelect/easySelectStyle.css" rel="stylesheet" />
+    <!--Css App-->
+    <link rel="stylesheet" type="text/css" href="css/cuong.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/style.css" />
+    <link href="~/css/backend_Huy.css" rel="stylesheet" />
+    <link href="~/Ckediter/contents.css" rel="stylesheet" />
+    <link href="~/lib/mutislect-tag/css/amsify.suggestags.css" rel="stylesheet" />
+
+
+    @*<link href="~/css/daterangepicker.css" rel="stylesheet" />*@
+    @RenderSection("styles", required: false)
+
+</head>
+<body>
+    <section class="header-nav">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light p-0">
+                <a class="navbar-brand" href="#">
+                    <img src="~/img/MIMAIL.png" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" style="justify-content: space-between;" id="navbarNav">
+                    <ul class="navbar-nav cust-nav-top">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/nhom-kh">
+                                <div class="item-cate">
+                                    <div>Kho khách hàng</div>
+                                    <div>
+                                        <img src="~/img/Login-Signup/Icon/users.svg" alt="">
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <div class="item-cate">
+                                    <div>Chiến dịch</div>
+                                    <div>
+                                        <img src="~/img/Login-Signup/Icon/campaign 1.svg" alt="">
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <div class="item-cate">
+                                    <div>Kho mail mẫu</div>
+                                    <div>
+                                        <img src="~/img/Login-Signup/Icon/mail.svg" alt="">
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <div class="item-cate">
+                                    <div>Kho Template</div>
+                                    <div>
+                                        <img src="~/img/Login-Signup/Icon/layout.svg" alt="">
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">
+                                <div class="item-cate">
+                                    <div>Báo cáo</div>
+                                    <div>
+                                        <img src="~/img/Login-Signup/Icon/report.svg" alt="">
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <div class="item-cate">
+                                    <div>Accounting</div>
+                                    <div>
+                                        <img src="~/img/Login-Signup/Icon/accounting.svg" alt="">
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <div class="item-cate">
+                                    <div>Nạp tiền</div>
+                                    <div>
+                                        <img src="~/img/Login-Signup/Icon/money.svg" alt="">
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <div class="item-cate">
+                                    <div>Setup</div>
+                                    <div>
+                                        <img src="~/img/Login-Signup/Icon/settings.svg" alt="">
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="d-flex">
+                        <div class="notification">
+                            <div class="nav-item dropdown cart">
+                                <a class="d-flex" href="#" role="button" data-toggle="dropdown">
+                                    <div class="icon">
+                                        <img src="~/img/Login-Signup/Icon/bell.svg" class="icon-nav" alt="">
+                                        <div class="amount">
+                                            9+
+                                        </div>
+                                    </div>
+                                </a>
+                                <!--Dropdown cart-->
+                                <div class="dropdown-menu dropdown-menu-right dropdown-cart">
+                                    1234
+                                </div>
+                            </div>
+                            <!-- <button class="navbar-toggler toggler-spring navbar-tog gler-ctm">
+                                    <span class="navbar-toggler-icon cust-togg"></span>
+                                </button> -->
+                        </div>
+                        <form class="account" method="post" id="logoutForm" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("IndexPublic", "Home", new { area = "" })">
+                            <div class="nav-item dropdown cart">
+                                <a class="d-flex align-items-center" href="javascript:void(0)" role="button" data-toggle="dropdown">
+                                    <img src="~/img/Login-Signup/img.png" alt="">
+                                    <i class="fal fa-angle-down icon-acc"></i>
+                                </a>
+
+                                <!--Dropdown cart-->
+                                <div class="dropdown-menu dropdown-menu-right dropdown-cart">
+                                    Xin chào @_accountHelper.GetCurrentUserAsync().Email
+                                    <div id="current_login_user" data-id="@_accountHelper.GetCurrentUserAsync().Id" style="display:none;"></div>
+                                    <button type="submit" class="btn btn-link navbar-btn navbar-link">Đăng xuất</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+    @RenderBody()
+    <!--Loading Ajax-->
+    <div id="overlay">
+        <div class="cv-spinner">
+            <span class="spinner"></span>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal-0">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header ">
+                    <h4 class="modal-title">Email template</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body ">
+                    <ul class="nav  nav-pills tem-li" role="tablist" id="nav-size">
+                        <li class="nav-item" style="margin: 0!important;">
+                            <a class="nav-link" data-toggle="pill" href="#modal-home">Nổi bật</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="pill" href="#modal-menu"> Máy giặt</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="pill" href="#modal-menu">  Máy lọc nước</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="pill" href="#modal-menu"> Điện gia dụng</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="pill" href="#modal-menu"> Phụ kiện</a>
+                        </li>
+                        <li class="nav-item dropdown dr-item">
+                            <a class="nav-link dropdown-toggle dropdown-none" data-toggle="dropdown" href="dr">
+                                Tất cả danh mục <i class="fa fa-angle-down"></i>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="dr">Link 1</a>
+                                <a class="dropdown-item" href="dr">Link 2</a>
+                                <a class="dropdown-item" href="dr">Link 3</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="modal-home" class=" tab-pane active">
+                            <br>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="overplay">
+                                        <a href="">
+                                            <img src="img/Rectangle 5.png" class="img-fluid">
+                                            <div class="overlay">
+                                                <div class="txt">Sử dụng mẫu</div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="txt1">
+                                        <p class="text-uppercase">Quản lý tiếp thị, quảng cáo</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="overplay">
+                                        <a href="">
+                                            <img src="img/Rectangle 5.png" class="img-fluid">
+                                            <div class="overlay">
+                                                <div class="txt">Sử dụng mẫu</div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="txt1">
+                                        <p class="text-uppercase">Quản lý tiếp thị, quảng cáo</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="overplay">
+                                        <a href="">
+                                            <img src="img/Rectangle 5.png" class="img-fluid">
+                                            <div class="overlay">
+                                                <div class="txt">Sử dụng mẫu</div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="txt1">
+                                        <p class="text-uppercase">Quản lý tiếp thị, quảng cáo</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="overplay">
+                                        <a href="">
+                                            <img src="img/Rectangle 5.png" class="img-fluid">
+                                            <div class="overlay">
+                                                <div class="txt">Sử dụng mẫu</div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="txt1">
+                                        <p class="text-uppercase">Quản lý tiếp thị, quảng cáo</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="overplay">
+                                        <a href="">
+                                            <img src="img/Rectangle 5.png" class="img-fluid">
+                                            <div class="overlay">
+                                                <div class="txt">Sử dụng mẫu</div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="txt1">
+                                        <p class="text-uppercase">Quản lý tiếp thị, quảng cáo</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="overplay">
+                                        <a href="">
+                                            <img src="img/Rectangle 5.png" class="img-fluid">
+                                            <div class="overlay">
+                                                <div class="txt">Sử dụng mẫu</div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="txt1">
+                                        <p class="text-uppercase">Quản lý tiếp thị, quảng cáo</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="modal-menu" class="tab-pane">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer modal-ft">
+                    <button type="button" class="btn  modal-button" data-dismiss="modal">Hủy</button>
+                    <button class="btn ml-auto">Tải lên</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Js cua design-->
+    <script src="~/js/jquery-3.4.1.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script type="text/javascript" src="~/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="~/js/font-icon.js"></script>
+
+    <script type="text/javascript" src="~/js/Chart.min.js"></script>
+    <script type="text/javascript" src="~/js/progressbar.js"></script>
+    <script type="text/javascript" src="~/js/utils.js"></script>
+    <script type="text/javascript" src="~/js/main.js"></script>
+    <script type="text/javascript" src="~/lib/paginationJS/paginationJS.js"></script>
+    <script src="~/lib/Notifiy/notify.min.js"></script>
+    <script src="~/lib/jquery-confirm/dist/jquery-confirm.min.js"></script>
+    <script src="~/lib/daterangepicker-master/moment.min.js"></script>
+    <script src="~/lib/daterangepicker-master/daterangepicker.js"></script>
+    <script src="~/lib/Sortable-master/Sortable.js"></script>
+    <script src="~/lib/jquery-sortablejs/jquery-sortable.js"></script>
+    <script src="~/lib/advanced-multiselect-easy/easySelect/easySelect.js"></script>
+
+    @*<script src="~/js/daterangepicker.js"></script>
+        <script src="~/js/moment.min.js"></script>*@
+    <script src="~/lib/mutislect-tag/js/jquery.amsify.suggestags.js"></script>
+    <script>
+        jQuery(function ($) {
+            $(document).ajaxStart(function () {
+                $("#overlay").fadeIn(300);
+            }).ajaxStop(function () {
+                $("#overlay").fadeOut(300);
+            });
+        });
+
+    </script>
+    <!-- Js cua Controller(Ung dung)-->
+
+    <script src="~/controllerJs/core/Core.js"></script>
+    <script src="~/lib/ckeditor/ckeditor.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

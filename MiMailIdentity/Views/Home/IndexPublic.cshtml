@@ -1,0 +1,632 @@
+﻿
+@{
+    ViewData["Title"] = "IndexPublic";
+    Layout = "~/Views/Shared/_LayoutPublic.cshtml";
+}
+
+@section styles{
+ 
+}
+
+
+<section class="main-action">
+    <div class="container">
+        <div class="row kc-pt-20">
+            <div class="col-md-3">
+                <div class="clg1 h-100">
+                    <div class="tit-action">
+                        <div class="txt-clg">Hành động nhanh</div>
+                        <div class="txt-clg-1"><i class="fal fa-cog"></i></div>
+                    </div>
+                    <ul class="list-actions">
+                        <li class="item-act">
+                            <a href="#">
+                                <div class="mn-action">
+                                    Tạo mail thường
+                                </div>
+                            </a>
+                        </li>
+                        <li class="item-act">
+                            <a href="#">
+                                <div class="mn-action">
+                                    Tạo mail template
+                                </div>
+                            </a>
+                        </li>
+                        <li class="item-act">
+                            <a href="#">
+                                <div class="mn-action">
+                                    Tạo chiến dịch nhanh
+                                </div>
+                            </a>
+                        </li>
+                        <li class="item-act">
+                            <a href="#">
+                                <div class="mn-action">
+                                    Tạo mail thường
+                                </div>
+                            </a>
+                        </li>
+                        <li class="item-act">
+                            <a href="#">
+                                <div class="mn-action">
+                                    Tạo mail template
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="clg1">
+                    <div class="tit-thke-sl d-flex">
+                        <div class="txt-tksl">Thống kê số lượng theo tháng</div>
+                        <div class="txt-tksl-1">
+                            <span class="mr-2">Chọn năm</span>
+                            <label>
+                                <select name="datatable_length" aria-controls="datatable" class="form-control">
+                                    <option value="2019">2019</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2021">2021</option>
+                                </select>
+                            </label>
+                            <span class="reload ml-2">
+                                <i class="fal fa-redo"></i>
+                            </span>
+
+                        </div>
+                    </div>
+                    <div class="main-tksl">
+                        <div class="hg-project">
+                            <ul class="tabs product-header">
+                                <li class="tab-link current" data-tab="tab-1">Lượt truy cập</li>
+                                <li class="tab-link" data-tab="tab-2">Trung bình khách hàng truy cập</li>
+                                <li class="tab-link" data-tab="tab-3">Trung bình thời lượng truy cập</li>
+                                <li class="tab-link" data-tab="tab-4">Tỷ lệ thoát</li>
+                            </ul>
+                        </div>
+
+                        <div class="mbl-container id-container mb-pd-0">
+                            <div id="tab-1" class="tab-content tab-cusdb current">
+                                <div style="width: 100%">
+                                    <canvas id="canvas"></canvas>
+                                </div>
+                                <div class="mota-thke">
+                                    <div>
+                                        <div style="font-weight: bold;">Hãy cố gắng đảm bảo các chiến dịch Email của bạn đem tới hiệu quả tốt nhất</div>
+                                        <div>Sử dụng các mẫu Email Template để đạt hiệu quả cao</div>
+                                    </div>
+                                    <a href="#">
+                                        <div class="buy-email">
+                                            Mua email
+                                        </div>
+                                    </a>
+
+                                </div>
+                            </div>
+                            <div id="tab-2" class="tab-cusdb">
+                                #2
+                            </div>
+                            <div id="tab-3" class="tab-cusdb">
+                                1#
+                            </div>
+                            <div id="tab-4" class="tab-cusdb">
+                                #4
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row kc-pt-10">
+            <div class="col-md-3">
+                <div class="clg1 h-100">
+                    <div class="txt-clg" style="padding-bottom:27px ;">Hạn mức gửi</div>
+                    <div id="process-bar-container" class="process"></div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="clg1">
+                            <div class="txt-clg" style="padding-bottom:27px ;">Báo cáo hiệu quả</div>
+                            <div class="all-chiso d-flex border-bottom">
+                                <div class="chiso-1">
+                                    <div class="nb-1">2</div>
+                                    <p>Tổng số gửi</p>
+                                </div>
+                                <div class="chiso-2">
+                                    <div class="nb-2">100%</div>
+                                    <p>Số đã mở</p>
+                                </div>
+                                <div class="chiso-2">
+                                    <div class="nb-3">100%</div>
+                                    <p>Tỷ lệ mở</p>
+                                </div>
+                                <div class="chiso-2">
+                                    <div class="nb-4">0%</div>
+                                    <p>Số đã mở</p>
+                                </div>
+                            </div>
+                            <div class="mt-3" style="color:#828282;">
+                                <p class="m-0">Bị trả lại: 0</p>
+                                <p class="m-0">Chưa đăng ký: 0</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="clg1">
+                            <div class="txt-clg" style="padding-bottom:27px ;">Tổng quan chiến dịch</div>
+                            <div class="all-chiso d-flex border-bottom">
+                                <div class="chiso-1">
+                                    <div class="nb-1">2</div>
+                                    <p>Tổng số gửi</p>
+                                </div>
+                                <div class="chiso-2">
+                                    <div class="nb-2">100%</div>
+                                    <p>Số đã mở</p>
+                                </div>
+                                <div class="chiso-2">
+                                    <div class="nb-3">100%</div>
+                                    <p>Tỷ lệ mở</p>
+                                </div>
+                                <div class="chiso-2">
+                                    <div class="nb-4">0%</div>
+                                    <p>Số đã mở</p>
+                                </div>
+                            </div>
+                            <div class="mt-3" style="color:#828282;">
+                                <p class="m-0">Bị trả lại: 0</p>
+                                <p class="m-0">Chưa đăng ký: 0</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<section class="main-table">
+    <div class="container">
+        <div class="table-1 kc-pt-10">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block-flat">
+                        <div class="header">
+                            <h3 style="font-size: 18px;">DANH SÁCH 10 CHIẾN DỊCH GẦN NHẤT</h3>
+                        </div>
+                        <div class="content cust-table-dashboad">
+                            <div class="table-responsive">
+                                <table id="datatable" class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Tên chiến dịch</th>
+                                            <th>Số lượng email gửi</th>
+                                            <th>Lượt mở</th>
+                                            <th>Lượt Click</th>
+                                            <th>Tỉ lệ mở</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="odd gradeX">
+                                            <td>Trident</td>
+                                            <td>
+                                                Internet Explorer 4.0
+                                            </td>
+                                            <td>Win 95+</td>
+                                            <td class="center">4</td>
+                                            <td class="center"></td>
+                                        </tr>
+                                        <tr class="even gradeC">
+                                            <td>Trident</td>
+                                            <td>
+                                                Internet Explorer 5.0
+                                            </td>
+                                            <td>Win 95+</td>
+                                            <td class="center">5</td>
+                                            <td class="center">C</td>
+                                        </tr>
+                                        <tr class="odd gradeA">
+                                            <td>Trident</td>
+                                            <td>
+                                                Internet Explorer 5.5
+                                            </td>
+                                            <td>Win 95+</td>
+                                            <td class="center">5.5</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="even gradeA">
+                                            <td>Trident</td>
+                                            <td>
+                                                Internet Explorer 6
+                                            </td>
+                                            <td>Win 98+</td>
+                                            <td class="center">6</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="odd gradeA">
+                                            <td>Trident</td>
+                                            <td>Internet Explorer 7</td>
+                                            <td>Win XP SP2+</td>
+                                            <td class="center">7</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="even gradeA">
+                                            <td>Trident</td>
+                                            <td>AOL browser (AOL desktop)</td>
+                                            <td>Win XP</td>
+                                            <td class="center">6</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Gecko</td>
+                                            <td>Firefox 1.0</td>
+                                            <td>Win 98+ / OSX.2+</td>
+                                            <td class="center">1.7</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Gecko</td>
+                                            <td>Firefox 1.5</td>
+                                            <td>Win 98+ / OSX.2+</td>
+                                            <td class="center">1.8</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Gecko</td>
+                                            <td>Firefox 2.0</td>
+                                            <td>Win 98+ / OSX.2+</td>
+                                            <td class="center">1.8</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Gecko</td>
+                                            <td>Firefox 3.0</td>
+                                            <td>Win 2k+ / OSX.3+</td>
+                                            <td class="center">1.9</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Gecko</td>
+                                            <td>Camino 1.0</td>
+                                            <td>OSX.2+</td>
+                                            <td class="center">1.8</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Gecko</td>
+                                            <td>Camino 1.5</td>
+                                            <td>OSX.3+</td>
+                                            <td class="center">1.8</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Gecko</td>
+                                            <td>Netscape 7.2</td>
+                                            <td>Win 95+ / Mac OS 8.6-9.2</td>
+                                            <td class="center">1.7</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Gecko</td>
+                                            <td>Netscape Browser 8</td>
+                                            <td>Win 98SE+</td>
+                                            <td class="center">1.7</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Gecko</td>
+                                            <td>Netscape Navigator 9</td>
+                                            <td>Win 98+ / OSX.2+</td>
+                                            <td class="center">1.8</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Gecko</td>
+                                            <td>Mozilla 1.0</td>
+                                            <td>Win 95+ / OSX.1+</td>
+                                            <td class="center">1</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Gecko</td>
+                                            <td>Mozilla 1.1</td>
+                                            <td>Win 95+ / OSX.1+</td>
+                                            <td class="center">1.1</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Gecko</td>
+                                            <td>Mozilla 1.2</td>
+                                            <td>Win 95+ / OSX.1+</td>
+                                            <td class="center">1.2</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Gecko</td>
+                                            <td>Mozilla 1.3</td>
+                                            <td>Win 95+ / OSX.1+</td>
+                                            <td class="center">1.3</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Gecko</td>
+                                            <td>Mozilla 1.4</td>
+                                            <td>Win 95+ / OSX.1+</td>
+                                            <td class="center">1.4</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Gecko</td>
+                                            <td>Mozilla 1.5</td>
+                                            <td>Win 95+ / OSX.1+</td>
+                                            <td class="center">1.5</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Gecko</td>
+                                            <td>Mozilla 1.6</td>
+                                            <td>Win 95+ / OSX.1+</td>
+                                            <td class="center">1.6</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Gecko</td>
+                                            <td>Mozilla 1.7</td>
+                                            <td>Win 98+ / OSX.1+</td>
+                                            <td class="center">1.7</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Gecko</td>
+                                            <td>Mozilla 1.8</td>
+                                            <td>Win 98+ / OSX.1+</td>
+                                            <td class="center">1.8</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Gecko</td>
+                                            <td>Seamonkey 1.1</td>
+                                            <td>Win 98+ / OSX.2+</td>
+                                            <td class="center">1.8</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Gecko</td>
+                                            <td>Epiphany 2.20</td>
+                                            <td>Gnome</td>
+                                            <td class="center">1.8</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Webkit</td>
+                                            <td>Safari 1.2</td>
+                                            <td>OSX.3</td>
+                                            <td class="center">125.5</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Webkit</td>
+                                            <td>Safari 1.3</td>
+                                            <td>OSX.3</td>
+                                            <td class="center">312.8</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Webkit</td>
+                                            <td>Safari 2.0</td>
+                                            <td>OSX.4+</td>
+                                            <td class="center">419.3</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Webkit</td>
+                                            <td>Safari 3.0</td>
+                                            <td>OSX.4+</td>
+                                            <td class="center">522.1</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Webkit</td>
+                                            <td>OmniWeb 5.5</td>
+                                            <td>OSX.4+</td>
+                                            <td class="center">420</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Webkit</td>
+                                            <td>iPod Touch / iPhone</td>
+                                            <td>iPod</td>
+                                            <td class="center">420.1</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Webkit</td>
+                                            <td>S60</td>
+                                            <td>S60</td>
+                                            <td class="center">413</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Presto</td>
+                                            <td>Opera 7.0</td>
+                                            <td>Win 95+ / OSX.1+</td>
+                                            <td class="center">-</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Presto</td>
+                                            <td>Opera 7.5</td>
+                                            <td>Win 95+ / OSX.2+</td>
+                                            <td class="center">-</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Presto</td>
+                                            <td>Opera 8.0</td>
+                                            <td>Win 95+ / OSX.2+</td>
+                                            <td class="center">-</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Presto</td>
+                                            <td>Opera 8.5</td>
+                                            <td>Win 95+ / OSX.2+</td>
+                                            <td class="center">-</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Presto</td>
+                                            <td>Opera 9.0</td>
+                                            <td>Win 95+ / OSX.3+</td>
+                                            <td class="center">-</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Presto</td>
+                                            <td>Opera 9.2</td>
+                                            <td>Win 88+ / OSX.3+</td>
+                                            <td class="center">-</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Presto</td>
+                                            <td>Opera 9.5</td>
+                                            <td>Win 88+ / OSX.3+</td>
+                                            <td class="center">-</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Presto</td>
+                                            <td>Opera for Wii</td>
+                                            <td>Wii</td>
+                                            <td class="center">-</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Presto</td>
+                                            <td>Nokia N800</td>
+                                            <td>N800</td>
+                                            <td class="center">-</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Presto</td>
+                                            <td>Nintendo DS browser</td>
+                                            <td>Nintendo DS</td>
+                                            <td class="center">8.5</td>
+                                            <td class="center">C/A<sup>1</sup></td>
+                                        </tr>
+                                        <tr class="gradeC">
+                                            <td>KHTML</td>
+                                            <td>Konqureror 3.1</td>
+                                            <td>KDE 3.1</td>
+                                            <td class="center">3.1</td>
+                                            <td class="center">C</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>KHTML</td>
+                                            <td>Konqureror 3.3</td>
+                                            <td>KDE 3.3</td>
+                                            <td class="center">3.3</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>KHTML</td>
+                                            <td>Konqureror 3.5</td>
+                                            <td>KDE 3.5</td>
+                                            <td class="center">3.5</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeX">
+                                            <td>Tasman</td>
+                                            <td>Internet Explorer 4.5</td>
+                                            <td>Mac OS 8-9</td>
+                                            <td class="center">-</td>
+                                            <td class="center">X</td>
+                                        </tr>
+                                        <tr class="gradeC">
+                                            <td>Tasman</td>
+                                            <td>Internet Explorer 5.1</td>
+                                            <td>Mac OS 7.6-9</td>
+                                            <td class="center">1</td>
+                                            <td class="center">C</td>
+                                        </tr>
+                                        <tr class="gradeC">
+                                            <td>Tasman</td>
+                                            <td>Internet Explorer 5.2</td>
+                                            <td>Mac OS 8-X</td>
+                                            <td class="center">1</td>
+                                            <td class="center">C</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Misc</td>
+                                            <td>NetFront 3.1</td>
+                                            <td>Embedded devices</td>
+                                            <td class="center">-</td>
+                                            <td class="center">C</td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>Misc</td>
+                                            <td>NetFront 3.4</td>
+                                            <td>Embedded devices</td>
+                                            <td class="center">-</td>
+                                            <td class="center">A</td>
+                                        </tr>
+                                        <tr class="gradeX">
+                                            <td>Misc</td>
+                                            <td>Dillo 0.8</td>
+                                            <td>Embedded devices</td>
+                                            <td class="center">-</td>
+                                            <td class="center">X</td>
+                                        </tr>
+                                        <tr class="gradeX">
+                                            <td>Misc</td>
+                                            <td>Links</td>
+                                            <td>Text only</td>
+                                            <td class="center">-</td>
+                                            <td class="center">X</td>
+                                        </tr>
+                                        <tr class="gradeX">
+                                            <td>Misc</td>
+                                            <td>Lynx</td>
+                                            <td>Text only</td>
+                                            <td class="center">-</td>
+                                            <td class="center">X</td>
+                                        </tr>
+                                        <tr class="gradeC">
+                                            <td>Misc</td>
+                                            <td>IE Mobile</td>
+                                            <td>Windows Mobile 6</td>
+                                            <td class="center">-</td>
+                                            <td class="center">C</td>
+                                        </tr>
+                                        <tr class="gradeC">
+                                            <td>Misc</td>
+                                            <td>PSP browser</td>
+                                            <td>PSP</td>
+                                            <td class="center">-</td>
+                                            <td class="center">C</td>
+                                        </tr>
+                                        <tr class="gradeU">
+                                            <td>Other browsers</td>
+                                            <td>All others</td>
+                                            <td>-</td>
+                                            <td class="center">-</td>
+                                            <td class="center">U</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section scripts{
+
+}

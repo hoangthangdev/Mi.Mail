@@ -1,0 +1,28 @@
+﻿body {
+}
+.navbar-inverse {
+    background-color: #670fd4;
+    border-color: #670fd4;
+}
+
+.color-scheme-blue .navbar-inverse, .bg-slate-800.color-scheme-blue {
+    background-color: #670fd4 !important;
+}
+
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+    background-color: rgb(94, 15, 191) !important;
+}
+
+.bg-teal {
+    background-color: #670fd4;
+    border-color: #670fd4;
+}
+
+.checker span.checked {
+    background: #670fd4;
+    border-color: #670fd4;
+}
+
+.navbar-brand > img {
+    max-width: 100px;
+}

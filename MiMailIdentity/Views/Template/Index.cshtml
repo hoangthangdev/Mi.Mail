@@ -1,0 +1,192 @@
+﻿@using MiMailIdentity.Models;
+@using MiMailIdentity.Services.MailTemplateRepository;
+@inject IMailTemplateRepository _repo;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutPublic.cshtml";
+}
+@section styles{
+    <link href="~/lib/appzoo/buildtemp/css/styles.css" rel="stylesheet" />
+    <link href="~/lib/appzoo/buildtemp/css/builder.css" rel="stylesheet" />
+    <link href="~/lib/appzoo/buildtemp/css/colorpicker.css" rel="stylesheet" />
+    <link href="~/lib/appzoo/buildtemp/css/icmoon.css" rel="stylesheet" />
+    <link href="~/lib/appzoo/buildtemp/css/res_email.css" rel="stylesheet" />
+}
+<section>
+    <div class="p-2 border-top">
+        <div class="container">
+            <div class="giaidoan d-flex">
+                @*<div class="turn-chimuc d-flex active" >
+                        <div class="nb-turn mr-1 ">1</div>
+                        <div>Mail có sẵn</div>
+                    </div>*@
+                <a data-toggle="pill" href="#tab-home" class="turn-chimuc d-flex">
+                    <div class="nb-turn mr-1">2</div>
+                    <div>Mail có sẵn</div>
+                </a>
+                <div class="line-turn"></div>
+                <a data-toggle="pill" href="#tab-home-1" class="turn-chimuc d-flex">
+                    <div class="nb-turn mr-1">2</div>
+                    <div>Các mẫu của tôi</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="header-hd">
+        <div class="container header-1">
+            <div class="title-hd">
+                <h5>Kho template</h5>
+            </div>
+            <div class="title-hd-1">
+                <ul class="nav nav-pills nav-title" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="pill" href="#tab-home">Mẫu có sẵn</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="pill" href="#tab-home-1">Các mẫu của tôi</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <section>
+        <div class="container">
+            <nav class="nav navbar-expand-sm nav-tab">
+                <div class="search">
+                    <i class="fal fa-search" aria-hidden="true"></i>
+                    <input type="text" id="IpTextSearch" placeholder="Search name" class="">
+                </div>
+                <ul class="navbar-nav ml-auto nav-tab-1">
+                    <li class="nav-item">
+                        <div class="nav-item1">
+                            <a href="/mail-mau/chon-bo-cuc" class="btn btn-secondary nav-button" role="button">Đặt thiết kế riêng</a>
+                        </div>
+
+                    </li>
+                    <li class="nav-item">
+
+                        <button type="button" class="btn btn-primary nav-button-1" data-toggle="modal" data-target="#myModal-1">
+                            <i class="fas fa-plus"></i>
+                            <p> Tải lên mẫu của bạn</p>
+                        </button>
+
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <hr>
+    <section class="tem pt-3">
+        <div class="tab-content">
+            <dic class="container">
+                <ul class="nav nav-pills tem-li" role="tablist">
+                    @{
+                        var list_cate = _repo.GetCategoryByCurrentUser();
+                        var c = 1;
+                        var d = 1;
+                        var first_dm = list_cate.FirstOrDefault();
+                    }
+                    @foreach (var item in list_cate)
+                    {
+                        <li class="nav-item" style="margin: 0 !important">
+                            <a class="nav-link  danh-muc-template @(c == 1?"active":"")" data-toggle="pill" data-name="@item">@item</a>
+                        </li>
+                        c++;
+                    }
+
+                    <li class="nav-item dropdown dr-item">
+                        <a class="nav-link dropdown-toggle dropdown-none" data-toggle="dropdown" href="dr">
+                            Tất cả danh mục <i class="fa fa-angle-down"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            @foreach (var item in list_cate)
+                            {
+                                <a class="dropdown-item danh-muc-template" data-toggle="pill" data-name="@item">@item</a>
+                                d++;
+                            }
+                        </div>
+                    </li>
+
+                </ul>
+                <div class="binding-item">
+                    @if (!string.IsNullOrEmpty(first_dm))
+                    {
+                        @await Component.InvokeAsync("ListTemplate", new { cate = first_dm, search = "", PageIndex = 1 })
+                    }
+
+                </div>
+                <div id="pagination">
+
+                </div>
+            </dic>
+        </div>
+    </section>
+</section>
+<div class="container">
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header ">
+                    <img src="img/upemail.png" style="margin-right: 12px;">
+                    <h5 class="modal-title"><b>Tải lên mẫu email lên</b></h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                </div>
+                <!-- Modal body -->
+                <form class="form" id="FormUpFile">
+                    <div class=" modal-body modal-bd-1">
+                        <div class="modal-body-hd">
+                            <div class="modal-body-hd1">
+                                <p>Please upload your HTML template bundle.Normally, it should be a .zip containing :</p>
+                                <ul>
+                                    <li> One single .html tệp tin and</li>
+                                    <li> One directory at the same level containing asset files (JS,CSS,Images,etc.)</li>
+                                </ul>
+                                <p>Please click <a href="#">[here]</a> to download a sample email template</p>
+                            </div>
+                        </div>
+
+                        <label>Tên mẫu <span>*</span></label>
+                        <br>
+                        <input type="text" name="">
+                        <br>
+                        <label>Chọn danh mục</label><br>
+                        <div class="select-wr">
+                            <input type="text" name="IpCate" id="IpCate" class="form-control" style="min-height:50px" />
+                        </div>
+
+                        <label>Tải file lên</label>
+                        <div class="file_upload">
+                            <button type="button">
+                                <i class="fas fa-plus"> </i>
+                            </button>
+                            <div></div>
+                            <input type="file" name="upFile" id="upFile">
+                        </div>
+
+                    </div>
+                    <div id="fileMail">
+
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer modal-ft">
+                        <button type="button" class="btn  modal-button" data-dismiss="modal">Hủy</button>
+                        <button type="submit" class="btn ml-auto">Tải lên</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+@section Scripts{
+    <script src="~/controllerJs/BuildingItemController.js"></script>
+    <script src="~/controllerJs/Template.js"></script>
+}
+
